@@ -1,5 +1,6 @@
 <%= turbo_frame_tag article do %>
   <p>
+    Article <%= "##{article.id}" %>
     <strong>Content:</strong>
     <%= article.content %>
     <%= link_to "Edit", edit_article_path(article) %>
