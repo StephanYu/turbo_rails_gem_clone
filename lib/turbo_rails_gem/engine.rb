@@ -6,7 +6,16 @@ module TurboRailsGem
 
     initializer "turbo_rails_gem.helpers" do
       ActiveSupport.on_load(:action_controller_base) do
+        include TurboRailsGem::Streams::TurboStreamsTagBuilder
         helper TurboRailsGem::Engine.helpers
+      end
+    end
+
+    initializer "turbo.renderer" do
+      ActiveSupport.on_load :action_controller do
+        ActionController::Renderers.add :turbo_stream do |html, _options|
+          html
+        end
       end
     end
 
