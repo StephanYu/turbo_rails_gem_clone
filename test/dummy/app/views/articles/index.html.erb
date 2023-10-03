@@ -1,5 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
+<%# <turbo-cable-stream-source channel="TurboRailsGem::StreamsChannel" signed-stream-name="articles"></turbo-cable-stream-source> %>
+<%= turbo_stream_from "articles" %>
+
 <h1>Articles</h1>
 
 <%= turbo_frame_tag Article.new %>
